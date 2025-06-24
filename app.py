@@ -13,7 +13,7 @@ def log_login():
     computer = data.get('computerName')
     ip = data.get('publicIP')
     timestamp = data.get('timestamp', datetime.utcnow().isoformat())
-    log_entry = f"{timestamp} - User: {username} - Computer: {computer} - Public IP: {ip}\n"
+    log_entry = f"{timestamp},{username},{computer},{ip}\n"
     log_file = os.path.join(LOG_DIR, f"{datetime.utcnow().date()}.log")
     with open(log_file, "a") as f:
         f.write(log_entry)
